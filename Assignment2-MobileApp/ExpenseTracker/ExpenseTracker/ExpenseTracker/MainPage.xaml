@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:model="clr-namespace:ExpenseTracker.Models"
+             x:Class="ExpenseTracker.MainPage">
+
+    <StackLayout>
+        
+        <Frame BackgroundColor="#2196F3" Padding="4" CornerRadius="0">
+            <Label Text="Expense Tracker" HorizontalTextAlignment="Center" TextColor="White" FontSize="16"/>
+        </Frame>
+        
+        
+        <Button Text="+ Add Expense" Clicked="OnAddExpenseClicked" />
+        <CollectionView x:Name="ExpenseListview" 
+                        Margin="10,10,10,20"
+                        Grid.Row="2"
+                        EmptyView="No Expenses for this Month"
+                        SelectionMode="Single"
+                        SelectionChanged="AllexpensesListview_ItemSelected">
+
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical"
+                                       ItemSpacing="10"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate  x:DataType="model:Expense">
+                    <Frame BorderColor="Gray"
+                              CornerRadius="7"
+                              Padding="6"
+                              HasShadow="True">
+                        <StackLayout>
+                            <Label x:Name="ExpenseNameLabel" 
+                                   FontFamily="Verdana"
+                                   FontSize="Large"
+                                   FontAttributes="Bold"
+                                   Text="{Binding Name, TargetNullValue='(No Name Set)'}" />
+
+                            <BoxView Color="Gray"
+                                         HeightRequest="2"
+                                         HorizontalOptions="Fill"/>
+
+                            <Label x:Name="ExpenseAmountEntry"
+                                   FontFamily="Verdana"
+                                   FontSize="Subtitle"
+                                   Text ="{Binding Amount, StringFormat='${0:N}'}"
+                                   HorizontalTextAlignment="End"/>
+
+                            <Label x:Name="CategoryExpenseView"
+                                     FontFamily="Verdana"
+                                     FontSize="Subtitle"
+                                     Text="{Binding category, TargetNullValue='(No Category Selected)'}" />
+
+                            <Label x:Name="ExpenseDate"
+                                   FontFamily="Verdana"
+                                   FontSize="Subtitle"
+                                   Text="{Binding SelectedDate, StringFormat='{0:MM/dd/yyyy}'}"/>
+
+
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+
+</ContentPage>

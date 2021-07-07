@@ -50,6 +50,7 @@
                 </Grid>
             </SplitView.Content>
         </SplitView>
-       
+        <TextBlock HorizontalAlignment="Left" Margin="1831,1047,0,0" Grid.Row="1" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top"/>
+
     </Grid>
 </Page>

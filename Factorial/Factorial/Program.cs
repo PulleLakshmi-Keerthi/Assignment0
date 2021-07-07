@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Factorial
 {
@@ -6,15 +7,18 @@ namespace Factorial
     {
         static void Main(string[] args)
         {
-                int i, fact = 1, Inputnumber;
-                Console.Write("Enter any Number: ");
-            Inputnumber = int.Parse(Console.ReadLine());
-                for (i = 1; i <= Inputnumber; i++)
-                {
-                    fact = fact * i;
-                }
-                Console.Write("Factorial of " + Inputnumber + " is: " + fact);
+            string[] words = { "apple", "strawberry", "grape", "peach", "banana" };
+            var wordQuery = from word in words
+                            where word[0] == 'g'
+                            select word;
+
+            // Because each element in the sequence is a string,
+            // not an anonymous type, var is optional here also.
+            foreach (string s in wordQuery)
+            {
+                Console.WriteLine(s);
             }
+        }
         }
     }
     

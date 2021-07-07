@@ -1,0 +1,54 @@
+﻿<Page
+    x:Class="PhotoAlbum.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PhotoAlbum"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:model="using:PhotoAlbum.Model"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        
+        </Grid.RowDefinitions>
+       
+            <Button Name="CreateNewAlbum" 
+                Content="Create New Album" 
+                Click="CreateNewAlbum_Click" 
+                FontSize="20"
+                HorizontalAlignment="Right" 
+                Grid.Row="0" />
+            
+        
+        <TextBlock Text="All Albums" 
+                   FontStyle="Italic" 
+                   FontSize="25" 
+                   Foreground="Navy" 
+                   HorizontalAlignment="Center" 
+                   Grid.Row="1"/>
+        <GridView Grid.Row="2"
+                              Name="AllAlbumsView"
+                              IsItemClickEnabled="True"
+                              ItemClick="AllAlbumsView_ItemClick"
+                             SelectionMode="None">
+            <GridView.ItemTemplate>
+                <DataTemplate x:DataType="model:Photo">
+                    <Image Name="AlbumCoverPhoto" 
+                                       Height="120" 
+                                       Width="100"
+                            Source="{x:Bind CoverPhotoOfAlbum}"/>                  
+                </DataTemplate>                
+            </GridView.ItemTemplate>
+        </GridView>
+
+    </Grid>
+</Page>
+                 
+            
+            
+        

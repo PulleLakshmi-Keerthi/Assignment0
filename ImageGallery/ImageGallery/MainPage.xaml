@@ -1,0 +1,26 @@
+﻿<Page
+    x:Class="ImageGallery.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ImageGallery"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <RelativePanel Grid.Row="0">
+            <Button Name="NextButton" Height="40" Width="60" Click="goNext_Click" RelativePanel.AlignRightWithPanel="True" Content="&#xE72A;" FontFamily="Segoe MDL2 Assets"/>
+            <Button Name="BackButton" Height="40" Width="60" Click="goBack_Click"  RelativePanel.AlignLeftWithPanel="True" Content="&#xE72B;" FontFamily="Segoe MDL2 Assets" />
+            
+        </RelativePanel>
+            <Image Name="picHolder" 
+               Source="Pics/1.jpg" Grid.Row="1" />
+        
+    </Grid>
+</Page>
